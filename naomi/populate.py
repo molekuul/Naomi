@@ -775,7 +775,7 @@ def get_stt_engine(profile):
     stt_engines = {
         "PocketSphinx": "sphinx",
         "DeepSpeech": "deepspeech-stt",
-        "Deepspeech-server": "deepspeech-server-stt",
+        "Deepspeech-server": "deepspeechserver-stt",
         "Wit.AI": "witai-stt",
         "Google Voice": "google",
         "Watson": "watson-stt",
