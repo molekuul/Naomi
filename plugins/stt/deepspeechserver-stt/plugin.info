@@ -1,0 +1,10 @@
+[Plugin]
+Name = deepspeechserver-stt
+Version = 1.0.0
+License = MIT
+URL = 
+Description = STT Plugin for the deepspeech server.
+
+[Author]
+Name = Joris Weijters 
+URL = 

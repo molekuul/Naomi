@@ -1,0 +1,1 @@
+from .deepspeechserverplugin import DeepspeechSTTPlugin

@@ -775,6 +775,7 @@ def get_stt_engine(profile):
     stt_engines = {
         "PocketSphinx": "sphinx",
         "DeepSpeech": "deepspeech-stt",
+        "Deepspeech-server": "deepspeech-server-stt",
         "Wit.AI": "witai-stt",
         "Google Voice": "google",
         "Watson": "watson-stt",
@@ -861,11 +862,7 @@ def get_stt_engine(profile):
         print("")
         print("")
     elif(
-        get_profile_var(
-            profile,
-            ['active_stt', 'engine']
-        ) == 'kaldigstserver-stt'
-    ):
+        get_profile_var( profile, ['active_stt', 'engine']) == 'kaldigstserver-stt'):
         print(
             "    " + instruction_text(
                 _("I need your Kaldi g-streamer server url to continue")
@@ -888,6 +885,38 @@ def get_stt_engine(profile):
         set_profile_var(
             profile,
             ['kaldigstserver-stt', 'url'],
+            simple_input(
+                format_prompt(
+                    "!",
+                    _("Please enter your server url:")
+                ),
+                temp
+            )
+        )
+    elif(
+        get_profile_var( profile, ['active_stt', 'engine']) == 'deepspeechserver-stt'):
+        print(
+            "    " + instruction_text(
+                _("I need your deepspeech server url to continue")
+            )
+        )
+        default = "http://localhost:8888/stt"
+        print(
+            "    " + instruction_text(
+                "(" + _("default is") + " "
+            ) + url_text(
+                "%s" % default
+            ) + instruction_text(
+                ")"
+            )
+        )
+        print("")
+        temp = get_profile_var(profile, ["deepspeechserver-stt", "url"])
+        if(not temp):
+            temp = default
+        set_profile_var(
+            profile,
+            ['deepspeechserver-stt', 'url'],
             simple_input(
                 format_prompt(
                     "!",
