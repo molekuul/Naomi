@@ -32,7 +32,7 @@ class DeepspeechSTTPlugin(plugin.STTPlugin):
             return []
 
         if not r.status_code == "200":
-                msg = r.content
+            msg = r.content
             self._logger.critical('Transcription failed: %s', msg)
             return []
 
